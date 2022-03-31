@@ -11,6 +11,7 @@ const {
   RoadTest,
   Kolong,
 } = require("../models");
+const transporter = require("../helpers/nodemailer");
 
 const getCars = async (req, res, next) => {
   try {
@@ -137,6 +138,21 @@ const addCar = async (req, res, next) => {
     );
 
     await t.commit();
+
+    let mailOptions = {
+      from: "jubelsinaga13@gmail.com",
+      to: "jubelsinaga13@gmail.com",
+      subject: "Success registration",
+      text: "Car created, please schedule an inspection",
+    };
+
+    transporter.sendMail(mailOptions, function (err, data) {
+      if (err) {
+        console.log("Error " + err);
+      } else {
+        console.log("Email sent successfully");
+      }
+    });
 
     res.status(201).json({ message: "Car created" });
   } catch (err) {

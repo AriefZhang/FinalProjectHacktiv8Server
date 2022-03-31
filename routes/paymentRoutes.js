@@ -21,6 +21,6 @@ router.post("/credits/cars", buyerAuthentication, nextInstallment);
 router.patch("/update/:id?", buyerAuthentication, updatePayment);
 router.post("/credits/:id?", buyerAuthentication, firstInstallment);
 router.get("/histories", histories);
-router.patch("/histories/:id", adminAuthentication, updatePaid);
+router.patch("/histories/:id", updatePaid);
 
 module.exports = router;

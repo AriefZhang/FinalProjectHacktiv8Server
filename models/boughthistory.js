@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      paidOff: DataTypes.BOOLEAN,
+      paidOff: { type: DataTypes.BOOLEAN, defaultValue: true },
       price: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -104,7 +104,7 @@ module.exports = (sequelize, DataTypes) => {
       saved_token_id: {
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: 'none',
+        defaultValue: "none",
         validate: {
           notNull: {
             msg: "Save Token Id is required",
@@ -127,7 +127,7 @@ module.exports = (sequelize, DataTypes) => {
             msg: "Buyer id is required",
           },
         },
-      }
+      },
     },
     {
       sequelize,

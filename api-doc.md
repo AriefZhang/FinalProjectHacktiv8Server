@@ -1,4 +1,4 @@
-# Branded Things API Documentation
+# AutoClassic API Documentation
 
 ## Endpoints :
 
